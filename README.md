@@ -33,11 +33,29 @@ npm run preview    # serves the production build locally
 3. Adds `.nojekyll` so files starting with `_` aren't ignored.
 4. Uploads and deploys via the official `actions/deploy-pages` action.
 
+### Custom domain
+
+Production runs on **https://kubikplay.com**. The domain is wired through `public/CNAME` (which GitHub Pages writes to the repo's Pages settings on each deploy).
+
+DNS at the registrar:
+
+| Type | Host | Value |
+|------|------|-------|
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+| `AAAA` | `@` | `2606:50c0:8000::153` |
+| `AAAA` | `@` | `2606:50c0:8001::153` |
+| `AAAA` | `@` | `2606:50c0:8002::153` |
+| `AAAA` | `@` | `2606:50c0:8003::153` |
+| `CNAME` | `www` | `<github-user>.github.io.` |
+
 ### One-time setup in GitHub
 
 1. Push the repo to GitHub.
 2. **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. (Optional) Add `public/CNAME` with your custom domain — the workflow will switch to base `/`.
+3. **Settings → Pages → Custom domain**: enter `kubikplay.com`, save, then enable **Enforce HTTPS** once the cert is issued (a few minutes after DNS propagates).
 
 ## Stack
 
