@@ -1,0 +1,83 @@
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource-variable/inter-tight/wght.css';
+@import '@fontsource/jetbrains-mono/400.css';
+@import '@fontsource/jetbrains-mono/500.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 20% 94%;
+    --foreground: 0 0% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+    --muted: 45 15% 88%;
+    --muted-foreground: 40 5% 51%;
+    --border: 45 15% 88%;
+    --input: 45 15% 88%;
+    --ring: 0 0% 7%;
+    --primary: 0 0% 7%;
+    --primary-foreground: 45 20% 94%;
+    --destructive: 8 62% 46%;
+    --destructive-foreground: 45 20% 94%;
+    --radius: 0.875rem;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .legal-prose {
+    @apply text-base leading-relaxed text-foreground;
+  }
+  .legal-prose h2 {
+    @apply mt-12 font-display text-2xl leading-tight tracking-[-0.5px] md:text-[1.75rem];
+  }
+  .legal-prose h2:first-child {
+    @apply mt-0;
+  }
+  .legal-prose h2 + .eyebrow,
+  .legal-prose .eyebrow {
+    @apply mb-2 mt-12 block font-mono text-[0.6875rem] uppercase tracking-monoWide text-muted-foreground;
+  }
+  .legal-prose h2 + .eyebrow {
+    @apply mt-2;
+  }
+  .legal-prose h3 {
+    @apply mt-8 font-display text-lg tracking-[-0.3px];
+  }
+  .legal-prose p {
+    @apply mt-4 text-base leading-relaxed text-muted-foreground;
+  }
+  .legal-prose ul {
+    @apply mt-4 space-y-2 pl-5;
+    list-style-type: disc;
+  }
+  .legal-prose ul li {
+    @apply text-base leading-relaxed text-muted-foreground;
+  }
+  .legal-prose strong {
+    @apply font-medium text-foreground;
+  }
+  .legal-prose a {
+    @apply font-medium text-foreground underline decoration-foreground/40 underline-offset-4 transition hover:decoration-foreground;
+  }
+  .legal-prose hr {
+    @apply my-12 border-border;
+  }
+}
